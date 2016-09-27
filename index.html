@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>OJ Destination Play</title>
+    <script src="handlebars-v4.0.5.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="scripts.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.css" />
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <div class="row hero">
+      <div class="hero-text">
+        <h1>Simple Recipes To Try Now</h1>
+        <h4>Sometimes we want sweet, sometimes savory, but we always want “easy.” Check out the dishes below, all made with Simply Orange (featuring a “grove-to-glass” taste to boost every bite). Pin your favorites to get the full recipes.</h4>
+    </div>
+    <div id="DocumentResults"></div>
+
+    <script id="document-template" type="text/x-handlebars-template">
+      <div class="main-body">
+        <div class="container">
+            {{#each rows }}
+              <div class="row">
+                {{#recipes}}
+                    <div class="{{classCol}} recipe-container">
+                      <div class="img-wrapper" style="background-image:url( {{imageURLdesktop}} )">
+                        <div class="recipe-overlay"></div>
+                      </div>
+                      <img class="img-mobile" src={{imageURLmobile}}>
+
+                      <!--  On Hover Content -->
+                      <div class="recipe-content">
+                        <h4>{{ imageTitle }}</h4>
+                        <!-- Pinterest Button -->
+                        <a href="http://www.pinterest.com" target="_blank">
+                          <div class="pin-btn">
+                            <h5>Pin Recipe</h5>
+                          </div>
+                        </a>
+                      </div>
+                    </div>
+                {{/recipes}}
+              </div>
+            {{/each}}
+        </div>
+      </div>
+    </script>
+  </body>
+</html>
