@@ -1,7 +1,34 @@
+html,body
+{
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden;
+}
+
 a, a:hover, a:visited, a:link, a:active {
     text-decoration: none;
 }
 
+// hero text
+.hero-text {
+  max-width: 700px;
+  margin: auto;
+  text-align: center;
+}
+
+// line in hero
+.hero-text h1::after {
+    content: "";
+    display: block;
+    width: 100px;
+    height: 4px;
+    margin: 23px auto 0px;
+    background: rgb(46, 46, 47);
+}
+
+// container of individual recipe
 .recipe-container {
   margin: auto;
   text-align: center;
@@ -9,6 +36,7 @@ a, a:hover, a:visited, a:link, a:active {
   position: relative;
 }
 
+// image for recipe
 .img-wrapper {
   position: relative;
   height: 430px;
@@ -17,7 +45,7 @@ a, a:hover, a:visited, a:link, a:active {
   background-repeat: no-repeat;
 }
 
-// overlay on hover
+// image overlay
 .recipe-overlay {
   position: absolute;
   top: 0; left: 0;
@@ -30,11 +58,13 @@ a, a:hover, a:visited, a:link, a:active {
 	        transition: .3s ease;
 }
 
+// show overlay on hover
 .recipe-container:hover
 .recipe-overlay {
   opacity: 1;
 }
 
+// show content on hover
 .recipe-container:hover
 .recipe-content {
    opacity: 1;
@@ -54,6 +84,7 @@ a, a:hover, a:visited, a:link, a:active {
        -o-transition: .3s ease;
           transition: .3s ease;
 
+  // recipe name
   & h4{
     font-family: brandon-grotesque;
     font-weight: 500;
@@ -100,33 +131,14 @@ a, a:hover, a:visited, a:link, a:active {
     }
 }
 
-// hero text
-.hero-text {
-  max-width: 700px;
-  margin: auto;
-  text-align: center;
-}
-
-// line in hero
-.hero-text h1::after {
-    content: "";
-    display: block;
-    width: 100px;
-    height: 4px;
-    margin: 23px auto 0px;
-    background: rgb(46, 46, 47);
-}
-
 // mobile image hidden on desktop and tablet
 .img-mobile {
   display: none;
 }
 
-@media ( max-width: 1023px ) {
-	.main-body {
-     margin: 0 auto;
-   }
-}
+////////////
+// TABLET //
+////////////
 
 @media ( min-width: 768px) and ( max-width: 991px ) {
 	.recipe-content h4 {
@@ -138,9 +150,20 @@ a, a:hover, a:visited, a:link, a:active {
 	}
 }
 
+////////////
+// MOBILE //
+////////////
+
 @media ( max-width: 768px) {
+
   body {
-    background-color: lightyellow;
+    padding-right: 0;
+    padding-left: 0;
+    position: absolute;
+  }
+
+  .hero-text {
+    width: 90%;
   }
 
   .img-wrapper,
@@ -152,8 +175,32 @@ a, a:hover, a:visited, a:link, a:active {
   .img-mobile {
     position: relative;
     display: block;
-    border: solid blue;
-    width: 100vw;
+    max-width: 100vw;
+    padding: 0;
+    margin: 0;
+    margin-top: 20px;
+  }
+
+  .recipe-content {
+    opacity: 1;
+    position: relative;
+    top: 65px;
+    padding: 10px 0px 20px 0px;
+    border-bottom: solid #eee;
+    & h4 {
+      color: black;
+      font-size: 30px;
+      letter-spacing: 1px;
+      text-transform: none;
+    }
+  }
+
+  .recipe-container {
+    margin: auto;
+    text-align: center;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+    position: relative;
   }
 
 }
